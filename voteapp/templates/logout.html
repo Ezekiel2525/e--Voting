@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<body>
+    <style>
+        .lpe{
+            margin-top: 15%;
+            text-align: center;
+        }
+
+    </style>
+
+    <div class="lpe">
+        <h1><strong>YOU HAVE LOGGED OUT SUCCESSFULLY 😣</strong></h1>
+        <hr>
+        <br>
+        <h2><strong>You are one click away from Logging in 👉</strong> &nbsp;<a class="btn btn-outline-primary" href="{% url 'signin' %}">Login</a></h2>
+        <hr>
+        <br>
+        <h2><strong>Don't Have an Account?😮 &nbsp; &nbsp;<a class="btn btn-outline-primary"  href="{% url 'signup' %}">Sign up</a></strong></h2>
+        <hr>
+        <br>
+
+    </div>
+       
+  
+</body>
+
+{% endblock %}

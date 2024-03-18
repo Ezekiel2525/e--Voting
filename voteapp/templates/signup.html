@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<div class="formContainer sde">
+
+    <form class="signupForm" action="" method='POST'>
+
+      {% csrf_token %}
+
+        {% if form.errors %}
+
+          <small style="color: red;">{{ form.errors }}</small>
+
+        {% endif %}
+
+        <h4>SignUp</h4>
+        
+         <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">USERNAME OR FULLNAME</label>
+            {{form.username}}
+           
+          </div>
+
+         <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">STUDENT_ID</label>
+            {{form.student_id}}     
+          </div>
+
+         <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">EMAIL</label>
+           {{form.email}} 
+          </div>
+
+         <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">DEPARTMENT</label>
+              {{form.department}}
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">PASSWORD</label>
+          {{ form.password1}}
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">CONFIRM PASSWORD</label>
+          {{ form.password2}}
+          </div>
+          
+
+          <button style="background-color: #1fb6ff;  color: white" class = 'btn btn-'>Register</button>
+          <p style="text-align:center">Already have an account? <a style="color: #1fb6ff; text-decoration:none" href="{% url 'signin' %}">Login</a></p>
+    </form>
+</div>
+
+
+<script>
+  let form_container = document.querySelector(".formContainer")
+  let inputs = form_container.querySelectorAll("input")
+
+
+  for(let input of inputs){
+      input.classList.add("form-control")
+  }
+
+</script>
+    
+{% endblock content %}
+    

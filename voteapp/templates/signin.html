@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="formContainer">
+
+ 
+    <form class="signupForm" action="" method='POST'>
+
+      {% csrf_token %}
+
+      {% if messages %}
+
+        {% for message in messages %}
+
+        <div class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+       {% endfor %}
+      
+      {% endif %}
+
+  <h4>Login</h4>
+
+        {% if request.GET.next %}
+
+          <input type="hidden" name="next" value="{{request.GET.next}}">
+
+        {% endif %}
+
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">USERNAME</label>
+            <input type="text" class="form-control" name="username" placeholder="Enter Username">
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">PASSWORD</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter Password">
+          </div>
+
+
+          <button style="background-color: #1fb6ff; color: white" class = 'btn btn-'>Login</button>
+          <p style="text-align:center">Don't have an account? <a style="color: #1fb6ff; text-decoration:none" href="{% url 'signup' %}">Signup</a></p>
+    </form>
+</div>
+    
+{% endblock content %}
+    
+
+     
